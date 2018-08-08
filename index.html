@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Journal</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+    <!-- Entry point -->
+    <app></app>
+
+    <script src="./tags/app.tag" type="riot/tag"></script>
+    <script src="./tags/item.tag" type="riot/tag"></script>
+    <script src="./tags/text-editor.tag" type="riot/tag"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/riot@3.10.3/riot+compiler.min.js"></script>
+    <script>
+      riot.mount('*');
+    </script>
+  </body>
+</html>
