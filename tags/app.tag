@@ -1,16 +1,24 @@
 <app>
   <p>
-    <i class="fa fa-bars" style="font-size:36px"></i>
+    <i class="fa fa-bars" style="font-size:36px" onclick={ openItem }></i>
   </p>
 
-  <button type="button" name="button" onclick={ toggleEditor }>Start Journaling</button>
+  <div class="title">
+    <h1>Be Impeccable About Your Language</h1>
+    <h2>Nice Words Only Digital Journal</h2>
+  </div>
+
+  <div class="btn">
+    <button type="button" name="button" onclick={ toggleEditor }>Start Journaling</button>
+  </div>
 
 
   <div class="list">
-
+    <item if={ startJournal}></item>
     <item each={ journalList }></item>
-
   </div>
+
+
 
   <text-editor if={ creatingJournal }></text-editor>
 
@@ -19,9 +27,8 @@
   <script>
 
     var that = this;
-
     this.creatingJournal = false;
-
+    this.startJournal = false;
 
     this.toggleEditor = function(event){
       this.creatingJournal = true;
@@ -32,19 +39,13 @@
       that.update();
     };
 
-    this.journalList = [{
-      title: "this is awesome",
-      date: "August 12",
-      content: "I really love the tutorial."
-    },{
-      title: "this is awesome",
-      date: "August 12",
-      content: "I really love the tutorial."
-    },{
-      title: "this is awesome",
-      date: "August 12",
-      content: "I really love the tutorial."
-    }];
+    this.openItem = function(event){
+      this.startJournal = !this.startJournal;
+
+    }
+
+
+    this.journalList = [];
 
 
   </script>
@@ -56,9 +57,9 @@
       display: block;
       border: 1px solid orange;
       padding: 10px;
-      position: fixed;
-      height: 100%;
-      width: 100%;
+      position: relative;
+      height: auto;
+      width: auto;
     }
     .list {
       margin-top: 15px;
@@ -66,18 +67,17 @@
     button{
     background-color: #4CAF50; /* Green */
     border: none;
+    font-family: 'Raleway', sans-serif;
     color: white;
     padding: 16px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-      background-color: #dae0da;
+    background-color: #dae0da;
     color: black;
     border: 2px solid #4CAF50;
     }
@@ -85,6 +85,21 @@
       background-color: #4CAF50;
       color: white;
       opacity: 1
+
+    }
+    .title{
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 25em;
+      width: 50%;
+
+
+    }
+    .btn{
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5em;
+      width: 30%;
 
     }
   </style>
