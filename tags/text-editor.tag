@@ -3,18 +3,32 @@
   Editor
 </p>
 <div>
-  <span>Title: </span>
-  <input type="text" value="">
+  <span>Title: </span> <input type="text" ref="title" value="">
 </div>
+
 <div>
-  <span>Date: </span>
-  <input type="text" value="">
+  <span>Date: </span>  <input type="text" ref="date" value="">
 </div>
 
-<textarea name="name" rows="8" cols="40"></textarea>
+<textarea name="name" ref="content" rows="8" cols="40"></textarea>
 
-<button type="button" name="button">Done</button>
+<button type="button" name="button" onclick={ doneWriting }>Done</button>
+<button type="button" name="button" onclick={ parent.closeEditor }>Cancle</button>
 
+
+<script>
+  this.doneWriting = function(event) {
+    var newJournal = {
+      title: this.refs.title.value,
+      date: this.refs.date.value,
+      content: this.refs.content.value
+    };
+    this.parent.journalList.push(newJournal);
+    this.parent.update();
+    this.parent.closeEditor();
+  };
+
+</script>
 
 <style>
   :scope {
