@@ -13,8 +13,7 @@
   </div>
 
 
-  <div class="list">
-    <item if={ startJournal}></item>
+  <div if={ startJournal} class="list">
     <item each={ journalList }></item>
   </div>
 
