@@ -28,6 +28,14 @@
     var that = this;
     this.creatingJournal = false;
     this.startJournal = false;
+    this.journalList = [];
+
+    var journalRef = database.ref('journals');
+    journalRef.on('value', function(snap) {
+      var data = snap.val();
+      that.journalList = Object.values(data);
+      that.update();
+    });
 
     this.toggleEditor = function(event){
       this.creatingJournal = true;
@@ -42,21 +50,6 @@
       this.startJournal = !this.startJournal;
 
     }
-
-
-
-    this.journalList = [];
-
-    addItem(event){
-      var newTask = {};
-          newTask.task = event.target.value;
-
-          //We are going to write to the database
-          //where are we writing data to? --> reference
-          firebase.database().ref('x').set(newTask);
-          //write the data
-    }
-
 
 
 

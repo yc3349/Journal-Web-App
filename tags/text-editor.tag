@@ -18,6 +18,8 @@
 
 <script>
   var that = this;
+  this.journalList = [];
+
   this.doneWriting = function(event) {
     var newJournal = {
       title: this.refs.title.value,
@@ -25,24 +27,16 @@
       content: this.refs.content.value
     };
     //We are going to write to the database
-    var database = firebase.database();
-    var xRef = database.ref('newJournal');
+
+    var xRef = database.ref('journals');
     //where are we writing data to? --> reference
 
     //write the data
     var newKey = xRef.push().key;
     xRef.child(newKey).set(newJournal);
-
-    this.parent.journalList.push(newJournal);
     this.parent.update();
     this.parent.closeEditor();
   };
-
-
-  this.journalList = [];
-
-
-
 
 
 
