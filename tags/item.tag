@@ -1,5 +1,5 @@
 <item>
-  
+
   <p>
     { title } | { date } | { content }
 
