@@ -28,6 +28,29 @@
     this.parent.closeEditor();
   };
 
+
+  this.journalList = [];
+
+  addItem(event){
+    var newTask = {};
+        newTask.task = event.title.value;
+
+        //We are going to write to the database
+        var database = firebase.database();
+        var xRef = database.ref('title')
+
+        //where are we writing data to? --> reference
+
+
+        //write the data
+        var newKey = xRef.push().key;
+        xRef.child(newKey).set(newTask);
+
+        event.title.value = "";
+        event.title.focus();
+
+  }
+
 </script>
 
 <style>
