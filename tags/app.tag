@@ -5,7 +5,7 @@
 
   <div class="title">
     <h1>Be Impeccable About Your Language</h1>
-    <h2>Nice Words Only Digital Journal</h2>
+    <h2>A Nice-Words-Only Digital Journal</h2>
   </div>
 
   <div class="btn">
